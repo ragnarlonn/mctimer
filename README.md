@@ -48,4 +48,4 @@ The third is a list of all Minecraft servers where the user should be time limit
  on public servers somewhere out on the Internet)
 
 Each server is specified as a 3-tuple containing (IP, port, password). The port number and password are
-whatever you configured RCON to use in step 3 above (`rcon.port=...` and `rcon.password=...`)
+whatever you configured RCON to use when you edited your server.properties file as specified above (`rcon.port=...` and `rcon.password=...`)
