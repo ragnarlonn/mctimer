@@ -38,16 +38,14 @@ Getting started
     user="EnAmalia"
     allowance_per_day = 90
     servers = [ ("192.168.0.121", 25575, "sporklift"), ("192.168.0.121", 25576, "sporklift") ]
-    #
-    # The first is the name of the Minecraft user you want to time limit
-    #
-    # The second is the number of minutes per day the user should be allowed to play
-    #
-    # The third is a list of all Minecraft servers where the user should be time limited
-    # (note that you need to be in control of those servers; you can't use mctimer to limit time
-    #  on public servers somewhere out on the Internet)
-    # 
-    # Each server is specified as a 3-tuple containing (IP, port, password). The port number and password are
-    # whatever you configured RCON to use in step 3 above (`rcon.port=...` and `rcon.password=...`)
-    #
 ```
+The first is the name of the Minecraft user you want to time limit
+
+The second is the number of minutes per day the user should be allowed to play
+
+The third is a list of all Minecraft servers where the user should be time limited.
+(Note that you need to be in control of those servers; you can't use mctimer to limit time
+ on public servers somewhere out on the Internet)
+
+Each server is specified as a 3-tuple containing (IP, port, password). The port number and password are
+whatever you configured RCON to use in step 3 above (`rcon.port=...` and `rcon.password=...`)
