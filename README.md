@@ -1,3 +1,5 @@
+<p align="center"><img src="screenshot.png" alt="mctimer" width="400" height="300"></p>
+
 # mctimer
 
 #### Limit the amount of time your kid(s) spend playing Minecraft on your local Minecraft servers
@@ -7,25 +9,31 @@ the servers repeatedly to see if a certain, specified user is logged on or not a
 be deducted from a daily allowance. When the allowance is spent for the day, the app will start displaying
 large "Time is up!" messages to the user, together with sound effects.
 
+Dependencies
+------------
+
 The app uses the [RCON](http://wiki.vg/RCON) protocol to talk to the Minecraft servers. This means you have to have RCON enabled, 
 and also the [MCRcon](https://github.com/barneygale/MCRcon) Python library installed. It's very simple though - just follow the steps below.
 
-1. Install MCRcon. On a Mac: 
+Getting started
+---------------
+
+- Install MCRcon. On a Mac: 
 ```
     git clone https://github.com/barneygale/MCRcon
     cd MCRcon
     sudo python setup.py install
 ```
 
-2. Edit your server.properties file and change `enable-rcon=false` to `enable-rcon=true`
+- Edit your server.properties file and change `enable-rcon=false` to `enable-rcon=true`
 
-3. Add the following lines to your server.properties file:
+- Add the following lines to your server.properties file:
 ```
     rcon.port=25575
     rcon.password=yourverysecretpassword
 ```
 
-4. Edit mctimer.py and change these definitions at the beginning of the file:
+- Edit mctimer.py and change these definitions at the beginning of the file:
 ```
     user="EnAmalia"
     allowance_per_day = 90
