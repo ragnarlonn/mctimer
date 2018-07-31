@@ -7,7 +7,7 @@
 This is a tiny Python app that monitors one or multiple [Minecraft servers](https://minecraft.net/en-us/download/server) that you control. It will scan
 the servers repeatedly to see if a certain, specified user is logged on or not and if they are, time will
 be deducted from a daily allowance. When the allowance is spent for the day, the app will start displaying
-large "Time is up!" messages to the user, together with sound effects.
+large "Time to stop!" messages to the user, together with sound effects.
 
 Dependencies
 ------------
