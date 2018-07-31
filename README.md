@@ -9,6 +9,8 @@ the servers repeatedly to see if a certain, specified user is logged on or not a
 be deducted from a daily allowance. When the allowance is spent for the day, the app will start displaying
 large "Time to stop!" messages to the user, together with sound effects.
 
+*Please note: this app only helps limit time on __your own,__ local Minecraft servers. You can't use it to control how much your kid plays on a public Minecraft server on the Internet*
+
 Dependencies
 ------------
 
