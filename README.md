@@ -39,7 +39,7 @@ Getting started
 ```
     user="EnAmalia"
     allowance_per_day = 90
-    servers = [ ("192.168.0.121", 25575, "sporklift"), ("192.168.0.121", 25576, "sporklift") ]
+    servers = [ ("192.168.0.121", 25575, "yourverysecretpassword"), ("192.168.0.121", 25576, "server2password") ]
 ```
 The first is the name of the Minecraft user you want to time limit
 
