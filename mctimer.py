@@ -13,7 +13,7 @@ except NameError: pass
 # 1. Which user should this script be monitoring?
 user = "EnAmalia"
 # 2. How many minutes per day should he/she be allowed to play on the servers?
-allowance_per_day = 90
+allowance_per_day = 60
 # 3. At what IPs can we find the servers, and on what ports is RCON running? (*)
 servers = [ ("192.168.0.121", 25575, "sporklift"), ("192.168.0.121", 25576, "sporklift") ]
 #
@@ -64,7 +64,7 @@ def update_bossbar(rcon, percentage):
         else:
             rcon.command("/playsound entity.cat.purreow ambient @a ~ ~ ~ 1.0 1.2 1.0")
 
-def main(servers):
+def reconnect(servers):
     rcons = []
     for server in servers:
         host, port, password = server
@@ -73,6 +73,10 @@ def main(servers):
         r.connect(host, port, password)
         r.command("/gamerule sendCommandFeedback false")
         rcons.append(r)
+    return rcons
+
+def main(servers):
+    rcons = reconnect(servers)
     curday = -1
 
     while True:
@@ -88,15 +92,21 @@ def main(servers):
         # Check if Amalia is logged on
         logged_on = False
         print "Looking for %s on servers..." % user
-        for i in range(len(rcons)):
-            response = rcons[i].command("/list")
-            if response.find(user) != -1:
-                print "   Found %s on server %s:%d" % (user, servers[i][0], servers[i][1])                    
-                # Subtract a minute
-                time_left -= 1
-                print "   Time left: %d" % time_left
-            # Update bossbar
-            update_bossbar(rcons[i], int((time_left * 100) / allowance_per_day))
+        try:
+            for i in range(len(rcons)):
+                response = rcons[i].command("/list")
+                if response.find(user) != -1:
+                    print "   Found %s on server %s:%d" % (user, servers[i][0], servers[i][1])                    
+                    # Subtract a minute
+                    time_left -= 1
+                    print "   Time left: %d" % time_left
+                # Update bossbar
+                update_bossbar(rcons[i], int((time_left * 100) / allowance_per_day))
+        except:
+            print "Lost connection to server(s), trying to reconnect..."
+            for i in range(len(rcons)):
+                rcons[i].disconnect()
+            rcons = reconnect(servers)
 
 
 if __name__ == '__main__':
