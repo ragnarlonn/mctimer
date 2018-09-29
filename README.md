@@ -4,10 +4,12 @@
 
 #### Limit the amount of time your kid(s) spend playing Minecraft on your local Minecraft servers
 
-This is a tiny Python app that monitors one or multiple Minecraft servers that you control. It will scan
+This is a tiny Python app that monitors one or multiple [Minecraft servers](https://minecraft.net/en-us/download/server) that you control. It will scan
 the servers repeatedly to see if a certain, specified user is logged on or not and if they are, time will
 be deducted from a daily allowance. When the allowance is spent for the day, the app will start displaying
-large "Time is up!" messages to the user, together with sound effects.
+large "Time to stop!" messages to the user, together with sound effects.
+
+*Please note: this app only helps limit time on __your own,__ local Minecraft servers. You can't use it to control how much your kid plays on a public Minecraft server on the Internet*
 
 Dependencies
 ------------
@@ -25,7 +27,7 @@ Getting started
     sudo python setup.py install
 ```
 
-- Edit your server.properties file and change `enable-rcon=false` to `enable-rcon=true`
+- Edit your [server.properties](https://minecraft.gamepedia.com/Server.properties) file and change `enable-rcon=false` to `enable-rcon=true`
 
 - Add the following lines to your server.properties file:
 ```
@@ -38,16 +40,14 @@ Getting started
     user="EnAmalia"
     allowance_per_day = 90
     servers = [ ("192.168.0.121", 25575, "sporklift"), ("192.168.0.121", 25576, "sporklift") ]
-    #
-    # The first is the name of the Minecraft user you want to time limit
-    #
-    # The second is the number of minutes per day the user should be allowed to play
-    #
-    # The third is a list of all Minecraft servers where the user should be time limited
-    # (note that you need to be in control of those servers; you can't use mctimer to limit time
-    #  on public servers somewhere out on the Internet)
-    # 
-    # Each server is specified as a 3-tuple containing (IP, port, password). The port number and password are
-    # whatever you configured RCON to use in step 3 above (`rcon.port=...` and `rcon.password=...`)
-    #
 ```
+The first is the name of the Minecraft user you want to time limit
+
+The second is the number of minutes per day the user should be allowed to play
+
+The third is a list of all Minecraft servers where the user should be time limited.
+(Note that you need to be in control of those servers; you can't use mctimer to limit time
+ on public servers somewhere out on the Internet)
+
+Each server is specified as a 3-tuple containing (IP, port, password). The port number and password are
+whatever you configured RCON to use when you edited your server.properties file as specified above (`rcon.port=...` and `rcon.password=...`)
